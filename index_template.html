@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+
+
+{% block navbar %}
+  <a class="navbar-brand" href="{{index}}">Главная</a>
+{% endblock %}
+
+
+{% block content %}
+  {% for topic in topics %}
+    <h3>{{topic.title}}</h3>
+    {% for article in articles[topic.slug] %}
+      <a href="{{article.href}}"><p>{{article.title}}</p></a>
+    {% endfor %}
+  {% endfor %}
+{% endblock %}
