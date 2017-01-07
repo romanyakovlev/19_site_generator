@@ -19,7 +19,7 @@ def render_static_to_html(template_environment, root_folder_path):
 
 def get_json_config():
 	with open('config.json') as json_data:
-		json_dict = json.load(json_data)
+		  json_dict = json.load(json_data)
 	return json_dict
 
 
@@ -39,7 +39,7 @@ def create_full_file_path(article_path, root_folder_path):
 	file_name_without_md_format = os.path.splitext(article_path)[0]
 	file_name_with_html_format = '.'.join([file_name_without_md_format, 'html'])
 	full_path = os.path.join(root_folder_path, 'rendered_pages',
-							 'articles', file_name_with_html_format)
+				 'articles', file_name_with_html_format)
 	return full_path
 
 
@@ -48,7 +48,7 @@ def create_file(file_path):
 
 
 def render_markdown_to_html(template_environment, article_dict,
-							path_to_index, root_folder_path):
+			    path_to_index, root_folder_path):
 	relative_path_markdown = os.path.join('templates','md_template.html')
 	markdown_template = template_environment.get_template(relative_path_markdown)
 	article_path = article_dict['source']
@@ -58,13 +58,13 @@ def render_markdown_to_html(template_environment, article_dict,
 	create_folder_for_topic_if_it_does_not(full_file_path)
 	create_file(full_file_path)
 	markdown_template.stream(article=article_dict,
-							 index_link=path_to_index).dump(full_file_path)
+				 index_link=path_to_index).dump(full_file_path)
 
 
 def render_all_markdowns_to_html(template_environment, json_dict, root_folder_path, path_to_index):
 	for article_dict in json_dict['articles']:
 		render_markdown_to_html(template_environment, article_dict,
-								path_to_index, root_folder_path)
+					path_to_index, root_folder_path)
 
 
 def make_topic_dict_with_articles_inside(json_dict, root_folder_path):
