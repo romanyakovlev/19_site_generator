@@ -1,0 +1,13 @@
+{% extends "templates/base_template.html" %}
+
+
+{% block navbar %}
+  <a class="navbar-brand" href="{{index_link}}">Главная</a>
+{% endblock %}
+
+
+{% block content %}
+  <h2>{{article.title}}</h2>
+  {{article.html_text}}
+  <h3><a href="{{index_link}}">На главную</a></h3>
+{% endblock %}
