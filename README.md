@@ -11,6 +11,7 @@
 - templates - шаблоны для генерации страниц с помощью Jinja2
 - rendered_pages - сгенерированные страницы
 - articles - markdown шаблоны
+
 # Установка
 ```sh
 git clone https://github.com/romanyakovlev/3_bars.git
