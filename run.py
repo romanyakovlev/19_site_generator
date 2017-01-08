@@ -46,7 +46,7 @@ def create_relative_file_path(article_path):
   file_name_without_md_format = os.path.splitext(article_path)[0]
   file_name_with_html_format = '.'.join([file_name_without_md_format, 'html'])
   relative_path = os.path.join('19_site_generator', 'rendered_pages',
- 'articles', file_name_with_html_format)
+                               'articles', file_name_with_html_format)
   return relative_path
 
 
