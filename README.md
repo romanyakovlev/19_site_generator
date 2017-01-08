@@ -2,6 +2,8 @@
 
 Генератор энциклопедии. Конвертирует markdown статьи и собирает их все в одном месте на главной странице.
 
+[Сайт](https://romanyakovlev.github.io/19_site_generator/)
+
 # Используемые технологии
 - Jinja2
 - Bootstrap
@@ -14,7 +16,7 @@
 
 # Установка
 ```sh
-git clone https://github.com/romanyakovlev/3_bars.git
+git clone https://github.com/romanyakovlev/19_site_generator
 ```
 # Запуск
 ```sh
