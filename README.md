@@ -2,7 +2,7 @@
 
 Генератор энциклопедии. Конвертирует markdown статьи и собирает их все в одном месте на главной странице.
 
-[Сайт](https://romanyakovlev.github.io/19_site_generator/)
+# [Сайт](https://romanyakovlev.github.io/19_site_generator/)
 
 # Используемые технологии
 - Jinja2
