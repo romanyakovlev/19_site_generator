@@ -11,10 +11,11 @@ def make_environment(root_folder_path):
 
 
 def render_static_to_html(template_environment, root_folder_path):
-  path_to_static = os.path.join(root_folder_path, 'rendered_pages', 'static.html')
+  path_to_static = os.path.join('rendered_pages', 'static.html')
   relative_path_static = os.path.join('templates','static_template.html')
   static_template = template_environment.get_template(relative_path_static)
-  static_template.stream(path_to_dir=root_folder_path).dump(path_to_static)
+  #root_folder_path = '/19_site_generator'
+  static_template.stream(path_to_dir='/19_site_generator').dump(path_to_static)
 
 
 def get_json_config():
@@ -85,12 +86,12 @@ def render_index_to_html(template_environment, json_dict, root_folder_path, path
   static_template.stream(topics=json_dict['topics'], articles=articles_by_topic,
                          index_link=path_to_index).dump(path_to_index)
 
-  
+
 def make_all_data():
   root_folder_path = os.getcwd()
   template_environment = make_environment(root_folder_path)
   json_dict = get_json_config()
-  path_to_index = os.path.join(root_folder_path, 'rendered_pages', 'index.html')
+  path_to_index = os.path.join('', 'rendered_pages', 'index.html')
   return root_folder_path, template_environment, json_dict, path_to_index
 
 
@@ -99,7 +100,7 @@ def render_templates(template_environment, json_dict, root_folder_path, path_to_
   render_all_markdowns_to_html(template_environment, json_dict, root_folder_path, path_to_index)
   render_index_to_html(template_environment, json_dict, root_folder_path, path_to_index)
 
-	
+
 if __name__ == '__main__':
   root_folder_path, template_environment, json_dict, path_to_index = make_all_data()
   render_templates(template_environment, json_dict, root_folder_path, path_to_index)
