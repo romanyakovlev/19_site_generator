@@ -14,7 +14,6 @@ def render_static_to_html(template_environment, root_folder_path):
   path_to_static = os.path.join('rendered_pages', 'static.html')
   relative_path_static = os.path.join('templates','static_template.html')
   static_template = template_environment.get_template(relative_path_static)
-  #root_folder_path = '/19_site_generator'
   static_template.stream(path_to_dir='/19_site_generator').dump(path_to_static)
 
 
@@ -59,7 +58,7 @@ def render_markdown_to_html(template_environment, article_dict,
   create_folder_for_topic_if_it_does_not(full_file_path)
   create_file(full_file_path)
   markdown_template.stream(article=article_dict,
-                           index_link=path_to_index).dump(full_file_path)
+                           index_link='/19_site_generator/rendered_pages/index.html').dump(full_file_path)
 
 
 def render_all_markdowns_to_html(template_environment, json_dict, root_folder_path, path_to_index):
