@@ -42,6 +42,13 @@ def create_full_file_path(article_path, root_folder_path):
                            'articles', file_name_with_html_format)
   return full_path
 
+def create_relative_file_path(article_path):
+  file_name_without_md_format = os.path.splitext(article_path)[0]
+  file_name_with_html_format = '.'.join([file_name_without_md_format, 'html'])
+  relative_path = os.path.join('19_site_generator', 'rendered_pages',
+                                                     'articles', file_name_with_html_format)
+  return relative_path
+
 
 def create_file(file_path):
   open(file_path, 'w').close()
@@ -72,9 +79,7 @@ def make_topic_dict_with_articles_inside(json_dict, root_folder_path):
   for article in json_dict['articles']:
     for article_key in articles_by_topic.keys():
       if article_key == article['topic']:
-        relative_path = os.path.join('19_site_generator', 'rendered_pages',
-                                                     'articles', article['source'])
-        article.update({'href': os.sep+relative_path})
+        article.update({'href': os.sep+create_relative_file_path(article['source'])})
         articles_by_topic[article_key].append(article)
   return articles_by_topic
 
