@@ -72,8 +72,9 @@ def make_topic_dict_with_articles_inside(json_dict, root_folder_path):
   for article in json_dict['articles']:
     for article_key in articles_by_topic.keys():
       if article_key == article['topic']:
-        full_file_path = create_full_file_path(article['source'], root_folder_path)
-        article.update({'href': full_file_path})
+        relative_path = os.path.join('19_site_generator', 'rendered_pages',
+                                                     'articles', article['source'])
+        article.update({'href': os.sep+relative_path})
         articles_by_topic[article_key].append(article)
   return articles_by_topic
 
